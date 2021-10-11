@@ -1,12 +1,19 @@
-import { userIcon, notificationsIcon, searchIcon } from "../images";
+import { notificationsIcon } from "../images";
 import "./Toolbar.scss";
 
 const Toolbar = () => {
   return (
     <div className="topnav">
-      <img src={userIcon} alt="Home"></img>
-      <img src={notificationsIcon} alt="Notifications"></img>
-      <img src={searchIcon} alt="Search"></img>
+      <button
+        aria-labelledby="notifications-label"
+        title="foonotes"
+        onClick={() => alert("You've been notified!")}
+      >
+        <img src={notificationsIcon} alt="altnotes" />
+      </button>
+      <div role="tooltip" id="notifications-label">
+        barnotes
+      </div>
     </div>
   );
 };
