@@ -1,4 +1,3 @@
-import { searchIcon } from "../images";
 import "./Content.scss";
 
 const Content = ({ info }) => {
