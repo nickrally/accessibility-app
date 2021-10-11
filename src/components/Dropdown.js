@@ -1,4 +1,5 @@
-import { Fragment, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
+import "./Dropdown.scss";
 const Dropdown = ({ options, onOptionChange, onFirstLoad }) => {
   const dropdownRef = useRef(null);
   useEffect(() => {
@@ -6,14 +7,14 @@ const Dropdown = ({ options, onOptionChange, onFirstLoad }) => {
     onFirstLoad(dropdownRef.current.value);
   }, [onFirstLoad]);
   return (
-    <Fragment>
+    <div className="drop">
       <label htmlFor="listbox1">Select:</label>
       <select id="listbox1" onChange={onOptionChange} ref={dropdownRef}>
         {options.map((item) => (
           <option key={item}>{item}</option>
         ))}
       </select>
-    </Fragment>
+    </div>
   );
 };
 export default Dropdown;

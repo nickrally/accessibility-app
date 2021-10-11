@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Dropdown from "./components/Dropdown";
-import Title from "./components/Title";
+import Toolbar from "./components/Toolbar";
+import Content from "./components/Content";
 function App() {
   const [selectedColor, setSelectedColor] = useState("");
   const colors = ["Green", "Orange", "Red", "Blue", "Violet"];
@@ -10,13 +11,13 @@ function App() {
   };
   return (
     <div className="App">
-      <Title />
+      <Toolbar />
       <Dropdown
         options={colors}
         onOptionChange={handleSelection}
         onFirstLoad={setSelectedColor}
       />
-      <h4>Currently selected: {selectedColor}</h4>
+      <Content info={selectedColor} />
     </div>
   );
 }
