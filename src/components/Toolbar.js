@@ -11,7 +11,7 @@ const Toolbar = () => {
   };
   return (
     <div className="topnav">
-      <button onClick={handleOnClick}>
+      <button onClick={handleOnClick} aria-describedby="notification-desc">
         <img src={notificationsIcon} alt="bell-icon" />
       </button>
       {buttonClicked && <Dialog close={setButtonClicked} />}
