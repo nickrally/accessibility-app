@@ -11,13 +11,9 @@ const Dialog = (props) => {
       aria-labelledby="title"
       aria-describedby="description"
     >
-      <div id="title">Title</div>
-      <div id="description">Information about whatever goes here</div>
-      <button
-        className="x-button"
-        aria-label="close"
-        onClick={() => props.close(false)}
-      >
+      <h2 id="title">Title of the dialog</h2>
+      <p id="description">Information provided by the dialog.</p>
+      <button className="x-button" onClick={() => props.close(false)}>
         X
       </button>
     </div>,
