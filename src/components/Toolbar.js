@@ -1,7 +1,27 @@
-import { notificationsIcon, searchIcon, userIcon } from "../images";
+import { useState } from "react";
+import {
+  notificationsIcon,
+  searchIcon,
+  userIcon,
+  shoppingCartIcon,
+} from "../images";
+import ShoppingCart from "./ShoppingCart";
 import "./Toolbar.scss";
 
 const Toolbar = () => {
+  const [cartClicked, setCartClicked] = useState(false);
+  const handleCartClick = () => {
+    setCartClicked(!cartClicked);
+  };
+  const confirm = () => {
+    console.log("confirmed");
+    setCartClicked(false);
+  };
+  const cancel = () => {
+    console.log("cancelled");
+    //setCartClicked(false);
+    window.alert("Too late! Your card was charged and all sales are final.");
+  };
   return (
     <div className="topnav">
       <button
@@ -31,6 +51,16 @@ const Toolbar = () => {
       <div role="tooltip" id="user-desc">
         User
       </div>
+      <button aria-describedby="cart-desc" onClick={() => handleCartClick()}>
+        <img src={shoppingCartIcon} alt="user-icon" />
+        <span className="visually-hidden">
+          This is a very long description blah blah blah
+        </span>
+      </button>
+      <div role="tooltip" id="cart-desc">
+        Shopping Cart
+      </div>
+      {cartClicked && <ShoppingCart confirm={confirm} cancel={cancel} />}
     </div>
   );
 };
