@@ -1,14 +1,5 @@
-.backdrop {
-  backdrop-filter: blur(2px);
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.modal {
-  background: #fff;
+[role="dialog"] {
+  background: blanchedalmond;
   position: absolute;
   left: 0;
   right: 0;
@@ -21,4 +12,12 @@
   padding: 20px;
   text-align: center;
   border-radius: 6px;
+}
+
+.x-button {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  margin-top: 0;
+  line-height: 1;
 }
