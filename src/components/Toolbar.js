@@ -9,17 +9,16 @@ import ShoppingCart from "./ShoppingCart";
 import "./Toolbar.scss";
 
 const Toolbar = () => {
-  const [cartClicked, setCartClicked] = useState(false);
-  const handleCartClick = () => {
-    setCartClicked(!cartClicked);
+  const [cartMouseOver, setCartMouseOver] = useState(false);
+  const handleCartMouseOver = () => {
+    setCartMouseOver(!cartMouseOver);
   };
   const confirm = () => {
     console.log("confirmed");
-    setCartClicked(false);
+    setCartMouseOver(false);
   };
   const cancel = () => {
     console.log("cancelled");
-    //setCartClicked(false);
     window.alert("Too late! Your card was charged and all sales are final.");
   };
   return (
@@ -51,7 +50,10 @@ const Toolbar = () => {
       <div role="tooltip" id="user-desc">
         User
       </div>
-      <button aria-describedby="cart-desc" onClick={() => handleCartClick()}>
+      <button
+        aria-describedby="cart-desc"
+        onMouseOver={() => handleCartMouseOver()}
+      >
         <img src={shoppingCartIcon} alt="user-icon" />
         <span className="visually-hidden">
           This is a very long description blah blah blah
@@ -60,7 +62,7 @@ const Toolbar = () => {
       <div role="tooltip" id="cart-desc">
         Shopping Cart
       </div>
-      {cartClicked && <ShoppingCart confirm={confirm} cancel={cancel} />}
+      {cartMouseOver && <ShoppingCart confirm={confirm} cancel={cancel} />}
     </div>
   );
 };

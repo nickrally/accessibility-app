@@ -8,9 +8,9 @@ const ShoppingCart = ({ confirm, cancel }) => {
       <Backdrop />
       <Modal>
         <ul>
-          <li>cheap shit</li>
-          <li>more cheap shit</li>
-          <li>random shit</li>
+          <li>cheap crap</li>
+          <li>more cheap crap</li>
+          <li>random crap</li>
         </ul>
         <p>Are you sure you want this buy this?</p>
         <button onClick={confirm}>Yes</button>
