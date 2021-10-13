@@ -12,12 +12,6 @@ function App() {
   return (
     <div className="App">
       <Toolbar />
-      <Dropdown
-        options={colors}
-        onOptionChange={handleSelection}
-        onFirstLoad={setSelectedColor}
-      />
-      <Content info={selectedColor} />
     </div>
   );
 }

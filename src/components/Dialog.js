@@ -5,28 +5,30 @@ import { createPortal } from "react-dom";
 const Dialog = (props) => {
   const dialog = document.getElementById("dialog");
   return createPortal(
-    <div id="notification-desc">
-      <h3>Good Paintings</h3>
-      Very good paintings.
+    <div id="notification-desc" role="dialog">
+      <h3>Title</h3>
+      <p>Information provided by the dialog.</p>
       <table>
-        <caption>Not some garbage by Rothko or Pollack</caption>
-        <tr>
-          <th scope="col">Painter</th>
-          <th scope="col">Title</th>
-          <th scope="col">Subject</th>
-        </tr>
+        <caption>Some caption</caption>
+        <tbody>
+          <tr>
+            <th scope="col">Col1</th>
+            <th scope="col">Col2</th>
+            <th scope="col">Cal3</th>
+          </tr>
 
-        <tr>
-          <th scope="row">Kiprenski</th>
-          <td>Portrait of unknown woman</td>
-          <td>Possibly a call girl</td>
-        </tr>
+          <tr>
+            <th scope="row">Row1</th>
+            <td>Foo</td>
+            <td>ok</td>
+          </tr>
 
-        <tr>
-          <th scope="row">Repin</th>
-          <td>Portrait of Musorgsky</td>
-          <td>A drunkard composer</td>
-        </tr>
+          <tr>
+            <th scope="row">Row2</th>
+            <td>Bar</td>
+            <td>notok</td>
+          </tr>
+        </tbody>
       </table>
       <button className="x-button" onClick={() => props.close(false)}>
         X
