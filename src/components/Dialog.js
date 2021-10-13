@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 const Dialog = (props) => {
   const dialog = document.getElementById("dialog");
   return createPortal(
-    <div id="notification-desc" role="dialog">
+    <div id="notification-desc">
       <h3>Title</h3>
       Information provided by the dialog.
       <button className="x-button" onClick={() => props.close(false)}>
