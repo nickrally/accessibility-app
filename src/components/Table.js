@@ -47,13 +47,11 @@ const Table = (props) => {
           <th scope="col">Col2</th>
           <th scope="col">Cal3</th>
         </tr>
-
         <tr>
           <th scope="row">Row1</th>
           <td>Foo</td>
           <td>ok</td>
         </tr>
-
         <tr>
           <th scope="row">Row2</th>
           <td>Bar</td>

@@ -1,11 +1,6 @@
 import Toolbar from "./components/Toolbar";
 import { AppContext } from "./shared/app-context";
 
-/* const data = [
-  { id: 1, name: "Foo", email: "foo@email.com" },
-  { id: 2, name: "Bar", email: "bar@email.com" },
-]; */
-
 const data = {
   foobar: [
     { id: 1, name: "Foo", email: "foo@email.com" },

@@ -11,7 +11,7 @@ const Dialog = (props) => {
       <h3>Dialog Title</h3>
       <p>Information provided by the dialog.</p>
       <Table item={item} />
-      <button className="x-button" onClick={() => close(false)}>
+      <button className="x-button" onClick={() => close("")}>
         X
       </button>
     </div>,
