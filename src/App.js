@@ -1,18 +1,27 @@
-import { useState } from "react";
-import Dropdown from "./components/Dropdown";
 import Toolbar from "./components/Toolbar";
-import Content from "./components/Content";
+import { AppContext } from "./shared/app-context";
+
+/* const data = [
+  { id: 1, name: "Foo", email: "foo@email.com" },
+  { id: 2, name: "Bar", email: "bar@email.com" },
+]; */
+
+const data = {
+  foobar: [
+    { id: 1, name: "Foo", email: "foo@email.com" },
+    { id: 2, name: "Bar", email: "bar@email.com" },
+  ],
+  bizbaz: [
+    { id: 1, name: "Biz", email: "biz@email.com" },
+    { id: 2, name: "Baz", email: "baz@email.com" },
+  ],
+};
+
 function App() {
-  const [selectedColor, setSelectedColor] = useState("");
-  const colors = ["Green", "Orange", "Red", "Blue", "Violet"];
-  const handleSelection = (e) => {
-    console.log("inside handleSelection:", e.currentTarget.value);
-    setSelectedColor(e.currentTarget.value);
-  };
   return (
-    <div className="App">
+    <AppContext.Provider value={data}>
       <Toolbar />
-    </div>
+    </AppContext.Provider>
   );
 }
 

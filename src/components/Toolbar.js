@@ -2,19 +2,31 @@ import { useState } from "react";
 import { notificationsIcon } from "../images";
 import "./Toolbar.scss";
 import Dialog from "./Dialog";
+import { useContext } from "react";
+import { AppContext } from "../shared/app-context";
 
 const Toolbar = () => {
-  const [buttonClicked, setButtonClicked] = useState(false);
-  const handleOnClick = () => {
-    console.log("handleOnClick");
-    setButtonClicked(true);
+  const appCtx = useContext(AppContext);
+  const keys = Object.keys(appCtx);
+  console.log(keys);
+  const [buttonClicked, setButtonClicked] = useState("");
+  const handleOnClick = (e) => {
+    console.log("handleOnClick", e.target.id);
+    setButtonClicked(e.target.id);
   };
   return (
     <div className="topnav">
-      <button onClick={handleOnClick} aria-describedby="notification-desc">
-        <img src={notificationsIcon} alt="bell-icon" />
-      </button>
-      {buttonClicked && <Dialog close={setButtonClicked} />}
+      {keys.map((item, index) => {
+        return (
+          <button key={index} onClick={handleOnClick} aria-describedby="xyz">
+            <img src={notificationsIcon} id={item} alt="bell-icon" />
+            <span className="visually-hidden">One two three</span>
+          </button>
+        );
+      })}
+      {buttonClicked && (
+        <Dialog close={setButtonClicked} item={buttonClicked} />
+      )}
     </div>
   );
 };
