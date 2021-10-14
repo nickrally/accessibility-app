@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import mnIcon from "../images/mn.png";
 import "./Toolbar.scss";
 import Dialog from "./Dialog";
