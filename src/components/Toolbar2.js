@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import mnIcon from "../images/mn.png";
 import "./Toolbar.scss";
 import Dialog from "./Dialog";
+import Button from "./Button";
 import { useContext } from "react";
 import { AppContext } from "../shared/app-context";
 
 const Toolbar = () => {
   const appCtx = useContext(AppContext);
-  const str = JSON.stringify(appCtx.foobar);
-  console.log("str", str);
   const keys = Object.keys(appCtx);
 
   const [buttonClicked, setButtonClicked] = useState("");
 
   const handleOnClick = (e) => {
+    console.log("e.target.id", e.target.id);
     setButtonClicked(e.target.id);
   };
   const parseData = (item) => {
@@ -21,20 +21,18 @@ const Toolbar = () => {
     let reg2 = /\{|\}/g;
     return JSON.stringify(appCtx[item]).replace(reg1, "").replace(reg2, "");
   };
+
   return (
     <div className="topnav">
       {keys.map((item, index) => {
-        return (
-          <button
-            key={index}
-            id={item}
-            onClick={handleOnClick}
-            aria-describedby="xyz"
-          >
-            <img src={mnIcon} id={item} alt="bell-icon" />
-            <span className="visually-hidden">{parseData(item)}</span>
-          </button>
-        );
+        const buttonCfg = {
+          handleOnClick,
+          parseData,
+          item,
+          index,
+          imgSrc: mnIcon,
+        };
+        return <Button buttonCfg={buttonCfg} key={index} />;
       })}
       {buttonClicked && (
         <Dialog close={setButtonClicked} item={buttonClicked} />
