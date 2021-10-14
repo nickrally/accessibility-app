@@ -5,6 +5,7 @@ import Table from "./Table";
 
 const Dialog = (props) => {
   const { close, item } = props;
+  console.log("item in Dialog:", item);
   const dialog = document.getElementById("dialog");
   return createPortal(
     <div id="xyz" role="dialog">
