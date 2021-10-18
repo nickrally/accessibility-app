@@ -10,12 +10,25 @@ const Toolbar = () => {
   const appCtx = useContext(AppContext);
   const keys = Object.keys(appCtx);
 
+  const [dialogOpened, setDialogOpened] = useState("");
   const [buttonClicked, setButtonClicked] = useState("");
 
-  const handleOnClick = (e) => {
+  const onClickHandler = (e) => {
     console.log("e.target.id", e.target.id);
     setButtonClicked(e.target.id);
+    setDialogOpened(e.target.id);
   };
+
+  const onBlurHandler = (e) => {
+    //it is div that being blurred or focused
+    setDialogOpened(e.target.id); //this is id of div not button!
+  };
+
+  const onFocusHandler = (e) => {
+    console.log("e.target.id", e.target.id); //this is id of div not button!
+    setDialogOpened(e.target.id);
+  };
+
   const parseData = (item) => {
     let reg1 = /\[|\]/g;
     let reg2 = /\{|\}/g;
@@ -23,20 +36,19 @@ const Toolbar = () => {
   };
 
   return (
-    <div className="topnav">
+    <div className="topnav" onBlur={onBlurHandler} onFocus={onFocusHandler}>
       {keys.map((item, index) => {
         const buttonCfg = {
-          handleOnClick,
+          onClickHandler,
           parseData,
           item,
           index,
           imgSrc: mnIcon,
+          dialogOpened,
         };
         return <Button buttonCfg={buttonCfg} key={index} />;
       })}
-      {buttonClicked && (
-        <Dialog close={setButtonClicked} item={buttonClicked} />
-      )}
+      {dialogOpened && <Dialog close={setButtonClicked} item={dialogOpened} />}
     </div>
   );
 };
